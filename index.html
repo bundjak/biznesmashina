@@ -3,768 +3,1128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Създай бизнес, който работи без теб - Книга</title>
+    <title>Книги от Соня Господинова - Път към бизнес свобода</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary-color: #D946EF;
+            --secondary-color: #F97316;
+            --dark-bg: #0F172A;
+            --light-text: #F8FAFC;
+            --accent-pink: #EC4899;
+            --gradient: linear-gradient(135deg, #D946EF 0%, #F97316 100%);
+            --gradient-2: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #2d3436;
-            background: #ffffff;
+            color: #334155;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
+
         /* Header */
         header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
             padding: 1rem 0;
+            transition: all 0.3s ease;
         }
-        
+
         nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .header-cta {
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            background: var(--gradient);
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .header-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(9, 132, 227, 0.3);
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
         }
-        
-        /* Hero Section */
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Hero Section - Book 1 */
         .hero {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--dark-bg);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(217, 70, 239, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(180deg); }
+        }
+
         .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 60px;
             align-items: center;
         }
-        
-        /* 3D Book */
-        .book-3d-container {
-            perspective: 1000px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--light-text);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
         }
-        
-        .book-3d {
-            width: 300px;
-            height: 400px;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: bookRotate 20s infinite linear;
-            cursor: grab;
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        @keyframes bookRotate {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        .book-3d:hover {
-            animation-play-state: paused;
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: #CBD5E1;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
         }
-        
-        .book-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .book-front {
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
-            transform: translateZ(15px);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            color: white;
-            text-align: center;
-        }
-        
-        .book-front h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .book-front p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .book-back {
-            background: linear-gradient(135deg, #6c5ce7, #f39c12, #0984e3);
-            transform: rotateY(180deg) translateZ(15px);
-            border-radius: 5px;
-        }
-        
-        .book-spine {
-            width: 30px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f39c12, #5a4fc8);
-            position: absolute;
-            left: -15px;
-            transform: rotateY(-90deg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .book-top {
-            width: 100%;
-            height: 30px;
-            background: #f8f9fa;
-            position: absolute;
-            top: -15px;
-            transform: rotateX(90deg);
-        }
-        
-        .book-bottom {
-            width: 100%;
-            height: 30px;
-            background: #f8f9fa;
-            position: absolute;
-            bottom: -15px;
-            transform: rotateX(-90deg);
-        }
-        
-        /* Book Info */
-        .book-info h1 {
-            font-size: 2.5rem;
-            color: #2d3436;
-            margin-bottom: 0.5rem;
-        }
-        
-        .book-info .subtitle {
-            font-size: 1.3rem;
-            color: #0984e3;
-            margin-bottom: 2rem;
-        }
-        
-        .price-section {
+
+        .price-tag {
             display: flex;
             align-items: baseline;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
-        
+
         .price-current {
             font-size: 3rem;
-            color: #f39c12;
-            font-weight: bold;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
+
         .price-original {
             font-size: 1.5rem;
-            color: #636e72;
+            color: #64748B;
             text-decoration: line-through;
         }
-        
+
         .price-badge {
-            background: #e74c3c;
+            background: var(--accent-pink);
             color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        .book-description {
-            font-size: 1.1rem;
-            color: #636e72;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn-primary {
-            flex: 1;
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
-            color: white;
-            padding: 1rem 2rem;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
+            font-weight: 600;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.125rem;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
+            border-radius: 50px;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(217, 70, 239, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(9, 132, 227, 0.3);
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(217, 70, 239, 0.4);
         }
-        
-        .features-list {
-            list-style: none;
+
+        .book-mockup {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
-        
-        .features-list li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+
+        .book-cover {
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
         }
-        
-        .features-list li:before {
-            content: "✓";
-            color: #f39c12;
-            font-size: 1.5rem;
-            font-weight: bold;
+
+        .book-cover:hover {
+            transform: perspective(1000px) rotateY(0deg);
         }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-        
-        .section-title {
+
+        .book-inner {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
             text-align: center;
-            font-size: 2.5rem;
-            color: #2d3436;
+        }
+
+        .book-inner h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1E293B;
+        }
+
+        .book-inner .subtitle {
+            color: #64748B;
+            margin-bottom: 20px;
+        }
+
+        .book-inner .author {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .bonus-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--accent-pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 20px rgba(236, 72, 153, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Bundle Section */
+        .bundle-section {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bundle-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .bundle-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bundle-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .bundle-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .bundle-subtitle {
+            font-size: 1.25rem;
+            color: #CBD5E1;
             margin-bottom: 3rem;
         }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .benefit-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-card h3 {
-            color: #f39c12;
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-card p {
-            color: #636e72;
-        }
-        
-        /* Content Preview */
-        .content-preview {
-            padding: 5rem 0;
-        }
-        
-        .content-grid {
+
+        .bundle-books {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
-        
-        .chapters {
-            background: #f8f9fa;
+
+        .bundle-book {
+            background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
-        
-        .chapters h3 {
-            color: #2d3436;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+
+        .bundle-book:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
         }
-        
-        .chapter-list {
-            list-style: none;
-        }
-        
-        .chapter-list li {
-            padding: 1rem;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .chapter-number {
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
+
+        .bundle-book h3 {
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        .bonus-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .bonus-content h3 {
-            color: #2d3436;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
         }
-        
-        .author {
-            color: #6c5ce7;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+
+        .bundle-book p {
+            color: #CBD5E1;
+        }
+
+        .bundle-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .bundle-price-old {
+            font-size: 2rem;
+            color: #64748B;
+            text-decoration: line-through;
+        }
+
+        .bundle-price-new {
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bundle-savings {
+            background: var(--accent-pink);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
             font-weight: 600;
         }
-        
-        /* Author Section */
-        .author-section {
-            padding: 5rem 0;
-            background: #fff;
+
+        /* Features Grid */
+        .features {
+            padding: 100px 20px;
+            background: #F8FAFC;
         }
-        
-        .author-content {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--dark-bg);
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
-        
-        .author-photo {
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
             text-align: center;
         }
-        
-        .author-photo .photo-placeholder {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto;
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
             border-radius: 50%;
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 4rem;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .author-bio h3 {
+            margin: 0 auto 20px;
             font-size: 2rem;
-            color: #2d3436;
-            margin-bottom: 0.5rem;
         }
-        
-        .author-title {
-            color: #0984e3;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-bg);
+            margin-bottom: 15px;
         }
-        
-        .author-bio p {
-            color: #636e72;
+
+        .feature-card p {
+            color: #64748B;
             line-height: 1.8;
-            margin-bottom: 1.5rem;
         }
-        
-        .author-bio blockquote {
-            border-left: 4px solid #f39c12;
-            padding-left: 2rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #2d3436;
-            font-size: 1.1rem;
-        }
-        
+
         /* Testimonials */
         .testimonials {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f5f3ff 0%, #e5f3ff 100%);
+            padding: 100px 20px;
+            background: white;
         }
-        
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-top: 60px;
         }
-        
+
         .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: #F8FAFC;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
         }
-        
-        .testimonial-content {
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+
+        .testimonial p {
             font-style: italic;
-            color: #2d3436;
-            margin-bottom: 1.5rem;
+            color: #475569;
             line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            font-weight: 600;
+            color: var(--dark-bg);
         }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
+
+        /* Author Section */
+        .about {
+            padding: 100px 20px;
+            background: var(--dark-bg);
+            color: var(--light-text);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .author-image-placeholder {
+            background: linear-gradient(135deg, #D946EF 0%, #F97316 100%);
+            padding: 5px;
+            border-radius: 20px;
+        }
+
+        .author-image-inner {
+            background: #1E293B;
+            padding: 20px;
+            border-radius: 15px;
+            width: 250px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
             color: white;
-            font-weight: bold;
         }
-        
-        /* Final CTA */
-        .final-cta {
-            background: linear-gradient(135deg, #0984e3, #f39c12, #6c5ce7);
-            color: white;
-            padding: 5rem 0;
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #CBD5E1;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
             text-align: center;
         }
-        
-        .final-cta h2 {
-            font-size: 2.5rem;
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: #94A3B8;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            background: var(--gradient);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .cta-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-card.featured {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            position: relative;
+        }
+
+        .cta-card.featured::before {
+            content: 'НАЙ-ПОПУЛЯРНО';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-pink);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .cta-card h3 {
+            color: white;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-        
-        .final-cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+
+        .cta-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
         }
-        
-        .cta-price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
-        
-        .final-cta .btn-primary {
+
+        .cta-button-secondary {
             background: white;
-            color: #f39c12;
+            color: var(--primary-color);
             display: inline-block;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
         }
-        
-        .final-cta .btn-primary:hover {
-            background: #f8f9fa;
+
+        .cta-button-secondary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         /* Footer */
         footer {
-            background: #2d3436;
-            color: #b2bec3;
-            padding: 2rem 0;
+            background: var(--dark-bg);
+            color: #94A3B8;
+            padding: 40px 20px;
             text-align: center;
         }
-        
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Floating Circle Decorations */
+        .floating-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.1;
+            filter: blur(100px);
+            animation: float-circle 20s ease-in-out infinite;
+        }
+
+        .floating-circle-1 {
+            top: 10%;
+            left: -150px;
+        }
+
+        .floating-circle-2 {
+            bottom: 10%;
+            right: -150px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float-circle {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -50px) scale(1.2); }
+        }
+
+        /* Countdown Timer */
+        .countdown-banner {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .countdown-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
-            
-            .book-3d-container {
+
+            .book-mockup {
                 order: -1;
-                margin-bottom: 2rem;
+                margin-bottom: 40px;
             }
-            
-            .cta-buttons {
-                flex-direction: column;
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
-            
-            .content-grid {
+
+            .author-image-placeholder {
+                margin: 0 auto;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .bundle-books {
                 grid-template-columns: 1fr;
             }
-            
+
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+
+            .cta-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Popup Order Form */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .popup-form {
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: popupScale 0.3s ease-out;
+        }
+
+        @keyframes popupScale {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .popup-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3436;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.1);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(217, 70, 239, 0.3);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Business Mashine</div>
-                <a href="#buy" class="header-cta">Купи сега</a>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">Business Mashine Books</div>
+            <div class="nav-buttons">
+                <a href="#books" class="nav-btn">Книгите</a>
+                <a href="#bundle" class="nav-btn">Пакетна оферта</a>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="book-3d-container">
-                    <div class="book-3d" id="book3d">
-                        <div class="book-face book-front">
-                            <h2>Създай бизнес, който работи без теб</h2>
-                            <p>Наръчник за свобода и предприемачество</p>
-                        </div>
-                        <div class="book-face book-back"></div>
-                        <div class="book-spine">Соня Господинова</div>
-                        <div class="book-top"></div>
-                        <div class="book-bottom"></div>
-                    </div>
+    <!-- Hero Section - Book 1 -->
+    <section class="hero" id="books">
+        <div class="floating-circle floating-circle-1"></div>
+        <div class="floating-circle floating-circle-2"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Спри да работиш за <span class="gradient-text">чужди мечти</span></h1>
+                <p>Открий пътя към финансова независимост и личностна свобода с първата книга от поредицата</p>
+                
+                <div class="price-tag">
+                    <span class="price-current">39.90 лв</span>
+                    <span class="price-original">49.90 лв</span>
+                    <span class="price-badge">-20%</span>
                 </div>
-                <div class="book-info">
-                    <h1>Създай бизнес, който работи без теб</h1>
-                    <p class="subtitle">Наръчник за свобода и предприемачество</p>
-                    <p class="author">от Соня Господинова</p>
-                    
-                    <div class="price-section">
-                        <span class="price-current">39.99 лв</span>
-                        <span class="price-original">49.99 лв</span>
-                        <span class="price-badge">-20% ОТСТЪПКА</span>
+                
+                <a href="#" class="cta-button" onclick="openOrderForm('book1')">Поръчай "Женската бизнес свобода"</a>
+            </div>
+            
+            <div class="book-mockup">
+                <div class="bonus-badge">+ БОНУС</div>
+                <div class="book-cover">
+                    <div class="book-inner">
+                        <h2>Женската бизнес свобода</h2>
+                        <p class="subtitle">Пътят към независимост и успех в съвременния свят</p>
+                        <p class="author">Соня Господинова</p>
                     </div>
-                    
-                    <p class="book-description">
-                        <strong>Проверени стратегии</strong> как да трансформирате бизнеса си от 
-                        работа, която ви държи в плен, в система, която генерира приходи без вашата 
-                        постоянна намеса. Научете от реалния опит на успешен предприемач.
-                    </p>
-                    
-                    <div class="cta-buttons" id="buy">
-                        <a href="#" class="btn-primary">Купи книгата</a>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Практически съвети от реален опит</li>
-                        <li>9 подробни глави с реални примери</li>
-                        <li>Лична история и уроци от опита</li>
-                        <li>Бонус: Готови шаблони и чек-листове</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
+    <!-- Hero Section - Book 2 -->
+    <section class="hero" style="background: linear-gradient(135deg, #1E293B 0%, #334155 100%);">
+        <div class="floating-circle floating-circle-1"></div>
+        <div class="floating-circle floating-circle-2" style="background: var(--gradient-2);"></div>
+        
+        <div class="hero-content">
+            <div class="book-mockup">
+                <div class="book-cover">
+                    <div class="book-inner">
+                        <h2 style="color: #3B82F6;">Създай бизнес, който работи без теб</h2>
+                        <p class="subtitle">Наръчник за свобода и предприемачество</p>
+                        <p class="author" style="color: #8B5CF6;">Соня Господинова</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-text">
+                <h1>Освободи се от <span class="gradient-text" style="background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">робството на бизнеса</span></h1>
+                <p>Научи как да създадеш системи и процеси, които работят без твоята постоянна намеса</p>
+                
+                <div class="price-tag">
+                    <span class="price-current" style="background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">39.90 лв</span>
+                    <span class="price-original">49.90 лв</span>
+                    <span class="price-badge" style="background: #3B82F6;">-20%</span>
+                </div>
+                
+                <a href="#" class="cta-button" style="background: var(--gradient-2);" onclick="openOrderForm('book2')">Поръчай втората книга</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle Section -->
+    <section class="bundle-section" id="bundle">
+        <div class="bundle-content">
+            <div class="bundle-badge">🎁 СПЕЦИАЛНА ОФЕРТА</div>
+            <h2 class="bundle-title">Получи и двете книги заедно</h2>
+            <p class="bundle-subtitle">Пълният наръчник от мечта до свобода + бонус материали</p>
+            
+            <div class="bundle-books">
+                <div class="bundle-book">
+                    <h3>📖 Женската бизнес свобода</h3>
+                    <p>Как да започнеш и какво мислене ти е нужно за успешен старт</p>
+                </div>
+                <div class="bundle-book">
+                    <h3>📘 Създай бизнес без теб</h3>
+                    <p>Как да изградиш системи и да делегираш за истинска свобода</p>
+                </div>
+            </div>
+            
+            <div class="bundle-price">
+                <span class="bundle-price-old">99.80 лв</span>
+                <span class="bundle-price-new">59.90 лв</span>
+                <span class="bundle-savings">Спестявате 40 лв!</span>
+            </div>
+            
+            <a href="#" class="cta-button" style="font-size: 1.25rem; padding: 20px 50px;" onclick="openOrderForm('bundle')">Поръчай пакета сега</a>
+            
+            <p style="color: rgba(255,255,255,0.8); margin-top: 2rem;">
+                ✅ Бонус работни материали<br>
+                ✅ 30-дневна гаранция
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">Какво ще получите от тази книга?</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔓</div>
-                    <h3>Излезте от капана</h3>
-                    <p>Научете как да не бъдете пленник на собствения си бизнес</p>
+            <h2 class="section-title">Какво ще получите от книгите</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Ясна стратегия</h3>
+                    <p>Стъпка по стъпка план за създаване и развитие на успешен бизнес</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚙️</div>
-                    <h3>Създайте системи</h3>
-                    <p>Изградете процеси, които работят без вашата постоянна намеса</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Преодоляване на страховете</h3>
+                    <p>Практични техники за справяне със синдрома на самозванеца</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">👥</div>
-                    <h3>Делегирайте правилно</h3>
-                    <p>Открийте тайните на успешното делегиране и управление на екип</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Финансова грамотност</h3>
+                    <p>Управление на лични и бизнес финанси за истинска независимост</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💡</div>
-                    <h3>Променете мисленето си</h3>
-                    <p>От изпълнител към истински предприемач - ментална трансформация</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Work-Life баланс</h3>
+                    <p>Как да имате успешен бизнес без да жертвате личния си живот</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚖️</div>
-                    <h3>Постигнете баланс</h3>
-                    <p>Интегрирайте успешно бизнеса с всички останали сфери на живота</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Системи и процеси</h3>
+                    <p>Създаване на бизнес, който работи без вашата постоянна намеса</p>
                 </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <h3>Истинска свобода</h3>
-                    <p>Създайте бизнес, който ви дава време за това, което обичате</p>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Екип и делегиране</h3>
+                    <p>Как да намерите и обучите правилните хора за вашия бизнес</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content Preview -->
-    <section class="content-preview">
-        <div class="container">
-            <h2 class="section-title">Какво ще намерите в книгата?</h2>
-            <div class="content-grid">
-                <div class="chapters">
-                    <h3>Съдържание на книгата</h3>
-                    <ul class="chapter-list">
-                        <li>
-                            <span class="chapter-number">1</span>
-                            <div>
-                                <strong>Грешки и ограничаващи вярвания</strong>
-                                <p>Защо собствениците стават пленници на бизнеса си</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">2</span>
-                            <div>
-                                <strong>Разчупи начина си на мислене</strong>
-                                <p>От изпълнител към предприемач</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">3</span>
-                            <div>
-                                <strong>Дефинирай мечтания бизнес</strong>
-                                <p>Ясна визия за бъдещето</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">4</span>
-                            <div>
-                                <strong>Избери правилния бизнес модел</strong>
-                                <p>Модели, които работят без теб</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">5</span>
-                            <div>
-                                <strong>Създай структурирана система</strong>
-                                <p>Процеси вместо импровизация</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">6</span>
-                            <div>
-                                <strong>Делегирай и изгради екип</strong>
-                                <p>Хора, които се справят като теб</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">7</span>
-                            <div>
-                                <strong>Защо добрите професионалисти са лоши служители</strong>
-                                <p>Уроци от реалния опит</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">8</span>
-                            <div>
-                                <strong>Проверявай и се отдръпвай</strong>
-                                <p>Не бъди незаменим, бъди свободен</p>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="chapter-number">9</span>
-                            <div>
-                                <strong>Изгради баланс в живота</strong>
-                                <p>Интегрирай бизнеса с всички сфери</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bonus-content">
-                    <h3>Какво още включва книгата</h3>
-                    <ul class="features-list">
-                        <li>Личната история на автора - от капана до свободата</li>
-                        <li>Реални примери от шивашки бизнес</li>
-                        <li>Психологията на делегирането</li>
-                        <li>Как да разпознаете токсичните служители</li>
-                        <li>Системи за контрол без микроменажмънт</li>
-                        <li>Седмични и месечни планове за трансформация</li>
-                        <li>Упражнения за самооценка и планиране</li>
-                        <li>Благодарности и вдъхновение</li>
-                    </ul>
-                </div>
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <div class="author-image-placeholder">
+                <div class="author-image-inner">СГ</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Author Section -->
-    <section class="author-section">
-        <div class="container">
-            <h2 class="section-title">За автора</h2>
-            <div class="author-content">
-                <div class="author-photo">
-                    <div class="photo-placeholder">СГ</div>
-                </div>
-                <div class="author-bio">
-                    <h3>Соня Господинова</h3>
-                    <p class="author-title">Предприемач и автор</p>
-                    <p>
-                        Соня е собственик на успешен шивашки бизнес, който успя да трансформира от 
-                        24-часов "затвор" в добре функционираща система. След години на денонощна работа, 
-                        преумора и загуба на баланс в живота, тя откри как да изгради екип и процеси, 
-                        които й позволяват истинска свобода.
-                    </p>
-                    <p>
-                        В книгата си Соня споделя не само теория, но и реален опит - включително грешките, 
-                        провалите и трудните решения, които е трябвало да вземе по пътя към свободата.
-                    </p>
-                    <blockquote>
-                        "Вярвам, че мечтите се сбъдват. Вярвам, че работата, която правиш със желание, 
-                        интерес и ентусиазъм дава резултати. Но също така научих, че да си собственик 
-                        не означава да си най-добре платеният служител в собствения си бизнес."
-                    </blockquote>
+            
+            <div class="about-text">
+                <h2>За автора</h2>
+                <p>Соня Господинова е основател на "Карнавал БГ" ООД - успешна компания за сценични костюми и народни носии. Нейното пътешествие от изтощен самотен боец до собственик на процъфтяващ бизнес с екип и системи е вдъхновение за хиляди жени.</p>
+                
+                <p>След като преодолява тежък бърнаут и научава как да делегира и автоматизира, Соня не само трансформира бизнеса си, но и създава живот на собствени условия. Днес тя помага на други жени предприемачи да постигнат същата свобода.</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Успешни книги</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Години опит</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Вдъхновени жени</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -773,98 +1133,155 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">Какво казват читателите</h2>
+            <h2 class="section-title">Какво казват читателките</h2>
+            
             <div class="testimonials-grid">
                 <div class="testimonial">
-                    <p class="testimonial-content">
-                        "След години на 12-часови работни дни, най-накрая имам бизнес, който работи без мен. 
-                        Книгата на Соня ми показа пътя - особено главата за токсичните служители ме отвори очите!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">МП</div>
-                        <div>
-                            <strong>Мария Петрова</strong>
-                            <p>Собственик на онлайн магазин</p>
-                        </div>
-                    </div>
+                    <p>Тази книга дойде в живота ми точно когато имах нужда. След 15 години корпоративна работа, най-накрая намерих куража да започна собствен бизнес. Практичните съвети на Соня ми спестиха години проби и грешки!</p>
+                    <div class="testimonial-author">- Мария Д., основател на дигитална агенция</div>
                 </div>
+                
                 <div class="testimonial">
-                    <p class="testimonial-content">
-                        "Глава 7 беше откровение! Разбрах защо най-добрите ми служители всъщност ме държаха 
-                        затворен в бизнеса. Сега имам екип, на който мога да се доверя напълно."
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ИД</div>
-                        <div>
-                            <strong>Иван Димитров</strong>
-                            <p>Основател на дигитална агенция</p>
-                        </div>
-                    </div>
+                    <p>Не е просто поредната бизнес книга. Това е честен разговор от жена за жена за всички страхове и предизвикателства, които срещаме. Работната тетрадка е безценна - превърна мечтите ми в конкретен план за действие.</p>
+                    <div class="testimonial-author">- Елена К., собственик на онлайн магазин</div>
                 </div>
+                
                 <div class="testimonial">
-                    <p class="testimonial-content">
-                        "Чиста практика без излишни приказки. Соня споделя истински опит - 
-                        включително грешките си. Това е наръчник, който наистина работи!"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">СГ</div>
-                        <div>
-                            <strong>Стефан Георгиев</strong>
-                            <p>IT консултант</p>
-                        </div>
-                    </div>
+                    <p>Втората книга трансформира начина, по който гледам на бизнеса си. Вече не работя В него, а НАД него. Системите, които Соня описва, наистина работят!</p>
+                    <div class="testimonial-author">- Десислава П., консултант</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Готови ли сте да излезете от капана?</h2>
-            <p>Спрете да бъдете най-добре платеният служител в собствения си бизнес</p>
-            <div class="cta-price">Само 39.99 лв за проверени стратегии</div>
-            <a href="#buy" class="btn-primary">Поръчайте сега</a>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">
-                Включва безплатна доставка + бонус материали за изтегляне
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Готова ли си за промяната?</h2>
+            <p>Избери как искаш да започнеш пътя си към бизнес свободата</p>
+            
+            <div class="cta-cards">
+                <div class="cta-card">
+                    <h3>Женската бизнес свобода</h3>
+                    <div class="price">39.90 лв</div>
+                    <a href="#" class="cta-button-secondary" onclick="openOrderForm('book1')">Поръчай</a>
+                </div>
+                
+                <div class="cta-card">
+                    <h3>Създай бизнес без теб</h3>
+                    <div class="price">39.90 лв</div>
+                    <a href="#" class="cta-button-secondary" onclick="openOrderForm('book2')">Поръчай</a>
+                </div>
+                
+                <div class="cta-card featured">
+                    <h3>Двете книги + бонуси</h3>
+                    <div class="price">59.90 лв</div>
+                    <a href="#" class="cta-button-secondary" onclick="openOrderForm('bundle')">Поръчай пакета</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 3rem; color: rgba(255,255,255,0.8);">
+                ✅ Сигурно плащане | ✅ Бърза доставка | ✅ 30-дневна гаранция
             </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Business Mashine. Всички права запазени. | Автор: Соня Господинова</p>
-        </div>
+        <p>&copy; 2024 Соня Господинова. Всички права запазени.</p>
+        <p>Контакт: <a href="https://businessmashine.com">businessmashine.com</a></p>
     </footer>
 
+    <!-- Countdown Timer Banner -->
+    <div class="countdown-banner" id="countdownBanner">
+        <div class="container">
+            <div class="countdown-content">
+                <div class="countdown-text">🔥 Специалните цени изтичат след:</div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">дни</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">часа</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">минути</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">секунди</span>
+                    </div>
+                </div>
+                <a href="#bundle" class="nav-btn" style="padding: 0.5rem 1.5rem;">Виж офертите</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Order Form -->
+    <div class="popup-overlay" id="orderPopup">
+        <div class="popup-form">
+            <div class="popup-header">
+                <h2>Завършете поръчката</h2>
+                <button class="popup-close" onclick="closeOrderForm()">×</button>
+            </div>
+            <div class="popup-body">
+                <form id="orderForm" onsubmit="submitOrder(event)">
+                    <div id="orderSummary" style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="margin-bottom: 0.5rem; color: #2d3436;">Вашата поръчка:</h3>
+                        <p id="orderProductName" style="font-weight: 600; color: var(--primary-color); margin: 0;"></p>
+                        <p id="orderProductPrice" style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0;"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Име и фамилия:*</label>
+                        <input type="text" class="form-input" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Телефон:*</label>
+                        <input type="tel" class="form-input" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Имейл:*</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Град:*</label>
+                        <input type="text" class="form-input" name="city" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Адрес за доставка:*</label>
+                        <input type="text" class="form-input" name="address" placeholder="Улица, номер, блок, вход, етаж, апартамент" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Начин на плащане:</label>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="payment" value="cash" checked>
+                                Наложен платеж
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="radio" name="payment" value="bank">
+                                Банков превод
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Завърши поръчката</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // 3D Book Interaction
-        const book3d = document.querySelector('.book-3d');
-        let isMouseDown = false;
-        let startX;
-        let currentRotation = 0;
-        
-        book3d.addEventListener('mousedown', (e) => {
-            isMouseDown = true;
-            startX = e.pageX;
-            book3d.style.animation = 'none';
-        });
-        
-        document.addEventListener('mousemove', (e) => {
-            if (!isMouseDown) return;
-            const deltaX = e.pageX - startX;
-            currentRotation += deltaX * 0.5;
-            book3d.style.transform = `rotateY(${currentRotation}deg)`;
-            startX = e.pageX;
-        });
-        
-        document.addEventListener('mouseup', () => {
-            isMouseDown = false;
-            book3d.style.animation = 'bookRotate 20s infinite linear';
-        });
-        
-        // Smooth scroll
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -876,6 +1293,114 @@
                     });
                 }
             });
+        });
+
+        // Countdown Timer
+        function startCountdown() {
+            // Set countdown to 24 hours from now
+            const countdownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById('countdown').innerHTML = '<div style="font-size: 1.5rem;">Офертата изтече!</div>';
+                }
+            }, 1000);
+        }
+
+        // Start countdown on page load
+        startCountdown();
+
+        // Order form functions
+        let selectedProduct = '';
+
+        function openOrderForm(product) {
+            selectedProduct = product;
+            const popup = document.getElementById('orderPopup');
+            
+            const productInfo = {
+                'book1': {
+                    name: 'Женската бизнес свобода',
+                    price: '39.90 лв'
+                },
+                'book2': {
+                    name: 'Създай бизнес, който работи без теб',
+                    price: '39.90 лв'
+                },
+                'bundle': {
+                    name: 'Пакет: Двете книги + бонуси',
+                    price: '59.90 лв'
+                }
+            };
+            
+            document.getElementById('orderProductName').textContent = productInfo[product].name;
+            document.getElementById('orderProductPrice').textContent = productInfo[product].price;
+            
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOrderForm() {
+            const popup = document.getElementById('orderPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            
+            const productNames = {
+                'book1': 'Женската бизнес свобода',
+                'book2': 'Създай бизнес, който работи без теб',
+                'bundle': 'Пакет: Двете книги + бонуси'
+            };
+            
+            alert(`Благодарим ви за поръчката на "${productNames[selectedProduct]}"! Ще се свържем с вас скоро за потвърждение.`);
+            closeOrderForm();
+            document.getElementById('orderForm').reset();
+        }
+
+        // Close popup on outside click
+        document.getElementById('orderPopup').addEventListener('click', (e) => {
+            if (e.target.id === 'orderPopup') {
+                closeOrderForm();
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and testimonials
+        document.querySelectorAll('.feature-card, .testimonial').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
         });
     </script>
 </body>
